@@ -13,7 +13,7 @@ bot.on('message', async(msg)=>{
         await bot.sendMessage(chatId, 'Нижче появиться кнопка, заповни форму', {
             reply_markup:{
                 keyboard:[
-                    [{text: 'Заповнити форму', web_app:{url: webAppUrl + '/form'}}]
+                    [{text: 'Заповнити форму', web_app:{url: webAppUrl + '/Form'}}]
                 ]
             }
         })
