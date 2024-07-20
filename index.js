@@ -26,15 +26,15 @@ bot.on('message', async(msg)=>{
             }
         })
     }
-    if(msg.web_app_data?.data) {
+    if(msg?.web_app_data?.data) {
         try{
-            const data = JSON.parse(msg.web_app_data?.data)
-
+           const data = JSON.parse(msg?.web_app_data?.data)
+           console.log(data)
            await bot.sendMessage(chatId, 'Дякую!');
-           await bot.sendMessage(chatId, 'Ваша країна:' + data?.country);
-           await bot.sendMessage(chatId, 'Ваша вулиця:' + data?.street);
+           await bot.sendMessage(chatId, 'Ваша країна: ' + data?.country);
+           await bot.sendMessage(chatId, 'Ваша вулиця: ' + data?.street);
 
-           setTimeout(async ()=>{
+           setTimeout(async ()=> {
                await bot.sendMessage(chatId, 'Всю інформацію ви отримаєте в цьому чаті');
            }, 2000)
 
