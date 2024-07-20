@@ -13,7 +13,7 @@ bot.on('message', async(msg)=>{
         await bot.sendMessage(chatId, 'Нижче появиться кнопка, заповни форму', {
             reply_markup:{
                 keyboard:[
-                    [{text: 'Заповнити форму', web_app:{url: webAppUrl + '/Form'}}]
+                    [{text: 'Заповнити форму', web_app:{url: webAppUrl + 'form'}}]
                 ]
             }
         })
@@ -26,5 +26,21 @@ bot.on('message', async(msg)=>{
             }
         })
     }
-    bot.sendMessage(chatId, 'Received tour message')
+    if(msg.web_app_data?.data) {
+        try{
+            const data = JSON.parse(msg.web_app_data?.data)
+
+           await bot.sendMessage(chatId, 'Дякую!');
+           await bot.sendMessage(chatId, 'Ваша країна:' + data?.country);
+           await bot.sendMessage(chatId, 'Ваша вулиця:' + data?.street);
+
+           setTimeout(async ()=>{
+               await bot.sendMessage(chatId, 'Всю інформацію ви отримаєте в цьому чаті');
+           }, 2000)
+
+        }catch (e){
+            console.log(e)
+        }
+
+    }
 })
