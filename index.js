@@ -11,10 +11,13 @@ const webAppUrl = 'https://silver-cheesecake-436994.netlify.app/';
 const bot = new TelegramBot(token, {polling: true})
 const app = express()
 
+
 app.use(express.json());
 app.use(cors())
 
+
 bot.on('message', async(msg)=>{
+
     const chatId = msg.chat.id
     const text = msg.text;
 
