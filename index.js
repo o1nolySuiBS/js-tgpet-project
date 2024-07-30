@@ -44,7 +44,9 @@ bot.on('message', async(msg)=>{
         try{
 
            const data = JSON.parse(msg?.web_app_data?.data)
+
            console.log(data)
+
            await bot.sendMessage(chatId, 'Дякую!');
            await bot.sendMessage(chatId, 'Ваша країна: ' + data?.country);
            await bot.sendMessage(chatId, 'Ваша вулиця: ' + data?.street);
