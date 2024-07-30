@@ -30,6 +30,7 @@ bot.on('message', async(msg)=>{
 
     await bot.sendMessage(chatId, 'Це магазин, роби замовлення', {
             reply_markup:{
+
                 inline_keyboard: [
                     [{text: "зробити замовлення", web_app:{url: webAppUrl}}]
                 ]
@@ -38,11 +39,13 @@ bot.on('message', async(msg)=>{
     }
     if(msg?.web_app_data?.data) {
         try{
+
            const data = JSON.parse(msg?.web_app_data?.data)
            console.log(data)
            await bot.sendMessage(chatId, 'Дякую!');
            await bot.sendMessage(chatId, 'Ваша країна: ' + data?.country);
            await bot.sendMessage(chatId, 'Ваша вулиця: ' + data?.street);
+
 
            setTimeout(async ()=> {
                await bot.sendMessage(chatId, 'Всю інформацію ви отримаєте в цьому чаті');
