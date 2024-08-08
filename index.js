@@ -51,7 +51,6 @@ bot.on('message', async(msg)=>{
            await bot.sendMessage(chatId, 'Ваша країна: ' + data?.country);
            await bot.sendMessage(chatId, 'Ваша вулиця: ' + data?.street);
 
-
            setTimeout(async ()=> {
                await bot.sendMessage(chatId, 'Всю інформацію ви отримаєте в цьому чаті');
            }, 2000)
@@ -67,7 +66,6 @@ bot.on('message', async(msg)=>{
 app.post('/web-data', (req, res)=>{
     const {queryId, products, totalPrice} = req.body
 })
-
 
 const PORT = 8000
 app.listen(PORT, () => console.log('server started on PORT' + PORT))
